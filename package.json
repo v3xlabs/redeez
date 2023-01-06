@@ -1,0 +1,12 @@
+{
+  "name": "redeez",
+  "version": "1.0.0",
+  "description": "A simple queue system for redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["redis", "queue"],
+  "author": "Lucemans <luc@lucemans.nl>",
+  "license": "LGPL-3.0-or-later"
+}
