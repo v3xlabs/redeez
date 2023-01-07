@@ -1,12 +1,29 @@
 {
-  "name": "redeez",
-  "version": "1.0.0",
-  "description": "A simple queue system for redis",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": ["redis", "queue"],
-  "author": "Lucemans <luc@lucemans.nl>",
-  "license": "LGPL-3.0-or-later"
+    "name": "redeez",
+    "version": "1.0.0",
+    "description": "A simple queue system for redis",
+    "main": "index.js",
+    "scripts": {
+        "build": "",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint -c .eslintrc.json --ext .ts ./src"
+    },
+    "keywords": [
+        "redis",
+        "queue"
+    ],
+    "author": "Lucemans <luc@lucemans.nl>",
+    "license": "LGPL-3.0-or-later",
+    "peerDependencies": {
+        "redis": ">= 2.6.0",
+        "zod": "^3.20.2"
+    },
+    "devDependencies": {
+        "@typescript-eslint/parser": "^5.48.0",
+        "eslint": "^8.31.0",
+        "eslint-plugin-v3xlabs": "^1.5.2",
+        "redis": "^4.5.1",
+        "typescript": "^4.9.4",
+        "zod": "^3.20.2"
+    }
 }
