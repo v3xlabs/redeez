@@ -11,7 +11,7 @@ export const gatherTask = async function* <K>(
 
         try {
             // Insert validation logic here
-            const parsed = JSON.parse(popped) as K;
+            const parsed = popped as K;
 
             yield parsed;
         } catch (error) {
