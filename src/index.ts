@@ -23,7 +23,7 @@ export const handleTasks = <TColl extends TaskCollection<T>, T>(
 
             for await (const printInfo of gatherTask<
                 ExtractFromHandler<typeof data>
-            >(_redis, data.queue)) {
+            >(_redis, data.queue, data.validate)) {
                 try {
                     await data.handler(_redis, printInfo);
                 } catch (error) {
