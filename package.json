@@ -4,7 +4,7 @@
     "description": "A simple queue system for redis",
     "main": "index.js",
     "scripts": {
-        "build": "",
+        "build": "tsup src/index.ts --format esm,cjs --dts --external redis,zod",
         "test": "echo \"Error: no test specified\" && exit 1",
         "lint": "eslint -c .eslintrc.json --ext .ts ./src"
     },
