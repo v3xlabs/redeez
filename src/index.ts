@@ -17,15 +17,17 @@ export const handleTasks = <TColl extends TaskCollection<T>, T>(
 ) => {
     for (const [task, data] of Object.entries(tasks)) {
         (async () => {
+            const _redis = redis.duplicate();
+
+            await _redis.connect();
+
             for await (const printInfo of gatherTask<
                 ExtractFromHandler<typeof data>
-            >(redis, data.queue)) {
-                console.log('task', task, 'data', printInfo);
-
+            >(_redis, data.queue)) {
                 try {
-                    await data.handler(printInfo);
+                    await data.handler(_redis, printInfo);
                 } catch (error) {
-                    console.error('queue_abort_error', error);
+                    console.log('queue_abort_error', error);
                 }
             }
         })();
