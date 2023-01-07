@@ -31,7 +31,7 @@ jobs:
 
       - name: Set package registry
         run: npm config set registry https://registry.npmjs.org
-      - run: pnpm publish --no-git-checks
+      - run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
