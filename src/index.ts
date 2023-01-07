@@ -21,7 +21,12 @@ export const handleTasks = <TColl extends TaskCollection<T>, T>(
                 ExtractFromHandler<typeof data>
             >(redis, data.queue)) {
                 console.log('task', task, 'data', printInfo);
-                await data.handler(printInfo);
+
+                try {
+                    await data.handler(printInfo);
+                } catch (error) {
+                    console.error('queue_abort_error', error);
+                }
             }
         })();
     }
