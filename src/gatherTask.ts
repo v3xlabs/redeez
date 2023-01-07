@@ -5,13 +5,15 @@ export const gatherTask = async function* <K>(
     queue: string
 ): AsyncGenerator<K> {
     while (redisClient.isOpen) {
-        const popped = await redisClient.brPop(queue, 0);
+        const { element } = (await redisClient.BRPOP(queue, 0)) as unknown as {
+            element: string | null;
+        } | null;
 
-        if (popped === null) continue;
+        if (element === null) continue;
 
         try {
             // Insert validation logic here
-            const parsed = popped as K;
+            const parsed = element as K;
 
             yield parsed;
         } catch (error) {
