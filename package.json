@@ -1,5 +1,5 @@
 {
-    "name": "redeez",
+    "name": "@v3xlabs/redeez",
     "version": "1.0.0",
     "description": "A simple queue system for redis",
     "exports": {
