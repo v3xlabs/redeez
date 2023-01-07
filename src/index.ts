@@ -20,6 +20,7 @@ export const handleTasks = <TColl extends TaskCollection<T>, T>(
             for await (const printInfo of gatherTask<
                 ExtractFromHandler<typeof data>
             >(redis, data.queue)) {
+                console.log('task', task, 'data', printInfo);
                 await data.handler(printInfo);
             }
         })();

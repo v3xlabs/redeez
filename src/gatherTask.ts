@@ -14,7 +14,8 @@ export const gatherTask = async function* <K>(
             const parsed = JSON.parse(popped) as K;
 
             yield parsed;
-        } catch {
+        } catch (error) {
+            console.log(error);
             continue;
         }
     }
