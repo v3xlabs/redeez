@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/lvkdotsh/redeez/raw/master/public/redeez_white.webp" />
-    <img alt="redeez" src="https://github.com/v3xlabs/redeez/raw/master/public/redeez_black.webp" width="400px" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://github.com/lvkdotsh/redeez/raw/master/public/redeez_white.png" />
+    <img alt="redeez" src="https://github.com/v3xlabs/redeez/raw/master/public/redeez_black.png" width="400px" />
   </picture>
 </p>
 
