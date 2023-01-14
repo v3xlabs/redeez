@@ -30,15 +30,22 @@ jobs:
         run: pnpm version --new-version "${GITHUB_REF:11}" --no-git-tag-version
 
       - name: Set package registry
-        run: npm config set registry https://registry.npmjs.org
-      - run: pnpm publish --no-git-checks --access public
+        run: npm config set registry https://npm.pkg.github.com
+      - run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Update my-file.json description
+        uses: jossef/action-set-json-field@v2.1
+        with:
+          file: package.json
+          field: name
+          value: redeez
+
       - name: Set package registry
-        run: npm config set registry https://npm.pkg.github.com
-      - run: pnpm publish --no-git-checks
+        run: npm config set registry https://registry.npmjs.org
+      - run: pnpm publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
