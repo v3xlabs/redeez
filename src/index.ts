@@ -1,9 +1,10 @@
 import { RedisClientType } from 'redis';
+import { ZodType, ZodTypeAny } from 'zod';
 
 import { gatherTask } from './gatherTask';
 import { TaskDefinition } from './TaskDefinition';
 
-type TaskCollection<T> = Record<string, TaskDefinition<T>>;
+type TaskCollection<T extends ZodTypeAny> = Record<string, TaskDefinition<T>>;
 
 type ExtractFromHandler<TDefinition> = TDefinition extends TaskDefinition<
     infer Typ
@@ -11,7 +12,7 @@ type ExtractFromHandler<TDefinition> = TDefinition extends TaskDefinition<
     ? Typ
     : never;
 
-export const handleTasks = <TColl extends TaskCollection<T>, T>(
+export const handleTasks = <TColl extends TaskCollection<T>, T extends ZodType>(
     redis: RedisClientType,
     tasks: TColl
 ) => {
